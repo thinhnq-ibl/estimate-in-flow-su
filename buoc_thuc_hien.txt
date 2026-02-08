@@ -1,0 +1,13 @@
+Triển khai cho việc xác thực khi có dữ liệu thực
+
+- Đầu tiên cần lấy dữ liệu 
+    - dân số của Seoul từ Worldpop
+    - dữ liệu xác suất di chuyển của GG Report
+    - dữ liệu POIs
+- Tính toán luồng IN như các sinh của HCM city
+- Normalize về (0,1)
+- Dư liệu thật cần đưa về grid 1x1 km
+- Tính luồng IN cho các cell
+- Normalize về (0,1)
+- Kiểm tra độ sai lệch giữa dữ liệu gen và dữ liệu thật theo các cell trong grid.
+- Cần có metric đo độ lỗi có thể là dùng MAE.
