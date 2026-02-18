@@ -25,6 +25,8 @@ import matplotlib.pyplot as plt
 # Load your shapefile
 gdf = gpd.read_file('map/data_seoul_subzone.shp')
 
+print(gdf)
+
 # Create the figure and axis
 fig, ax = plt.subplots(figsize=(10, 10))
 

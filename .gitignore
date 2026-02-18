@@ -208,3 +208,9 @@ __marimo__/
 
 *.csv
 map/
+
+.geojson
+calculate_in_cell/*.geojson
+calculate_out_cell/*.geojson
+share_data/*.geojson
+share_data/*.csv
