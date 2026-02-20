@@ -13,7 +13,6 @@ import geopandas as gpd
 # simulated = observed + np.random.normal(0, 10, 50) # Simulated with some error
 
 observed = []
-
 simulated = []
 
 gpd_real = gpd.read_file("../calculate_in_cell/in_flow_cells_normalized_real.geojson")

@@ -33,7 +33,7 @@ for idx, subzone_row in subzones.iterrows():
 if results_list:
     final_gdf = pd.concat(results_list, ignore_index=True)
     # Remove multiple properties at once
-    final_gdf = final_gdf.drop(columns=[' lobal_row', 'X', 'Y', 'COUNT', "amenity","leisure","office", "public_transport", "shop", "tourism", "district_name", "district", "prob_0", "prob_10"])
+    final_gdf = final_gdf.drop(columns=[' lobal_row', 'X', 'Y', 'COUNT', "amenity","leisure","office", "public_transport", "shop", "tourism", "district_name", "district", "prob_10", "prob_0"])
     final_gdf.to_file("all_bounded_in_cells.geojson", driver='GeoJSON')
 else:
     print("No bounded cells collected; nothing to write.")

@@ -21,5 +21,5 @@ gdf['group_area'] = gdf.groupby('SUBZONE_C')['intersect_area_m2'].transform('sum
 # Divide
 gdf['in_density'] = gdf['total_in_to_divide'] / gdf['group_area']
 
-gdf.to_file("amount_in_to_cell.geojson", driver='GeoJSON')
+gdf.to_file("all_bounded_in_cells.geojson", driver='GeoJSON')
 
