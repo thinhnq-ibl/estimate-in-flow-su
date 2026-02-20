@@ -58,6 +58,6 @@ for index1, row1 in gdf.iterrows():
         distance = row["distance_m"]
         pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
         pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
-        pair_cell_gdf.at[index, "in_prob"] = pois_right/sum_pois2 * float(pois_data["prob_10"])
+        pair_cell_gdf.at[index, "in_prob"] = pois_right/sum_pois2 * (1 - float(pois_data["prob_0"]))
 
 pair_cell_gdf.to_file(geojson_file, driver='GeoJSON')
