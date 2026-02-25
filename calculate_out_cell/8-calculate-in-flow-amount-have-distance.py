@@ -4,7 +4,7 @@ geojson_file = "categorized_cell_pairs.geojson"
 pair_cell_gdf = gpd.read_file(geojson_file)
 
 # 1. Load your GeoJSON
-gdf = gpd.read_file('seoul_prob_pois.geojson')
+gdf = gpd.read_file('../share_data/seoul_detail_pois.geojson')
 
 gdf['in_amount'] = 0
 

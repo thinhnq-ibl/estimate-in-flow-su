@@ -12,5 +12,5 @@ pair_cell_gdf['in_amount'] = 0.0
 # Extract the first cell_id as a scalar value (not a Series)
 for index, row in pair_cell_gdf.iterrows():
     pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-    pair_cell_gdf.at[index, "in_amount"] = float(pois_data["total_out"]) * float(row["in_prob"])
+    pair_cell_gdf.at[index, "in_amount"] = float(pois_data["final_out_value"]) * float(row["in_prob"])
 pair_cell_gdf.to_file(geojson_file, driver='GeoJSON')

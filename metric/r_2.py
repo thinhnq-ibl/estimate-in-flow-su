@@ -28,3 +28,4 @@ ss_tot = ((observed - simulated.mean())**2).sum()
 r2 = 1 - (ss_res / ss_tot)
 
 print(f"R-squared: {r2}")
+# R-squared: 0.9910997344859702

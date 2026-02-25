@@ -7,11 +7,12 @@ gdf = gdf.to_crs(epsg=3857)
 # 2. Define thresholds
 threshold_near = 1000   # 1km
 threshold_far = 10000   # 10km
+threshold_over = 20000   # 20km
 
 # 3. Create a buffer for the maximum search area (10km)
 # We keep 'cell_id' in this copy so it's available after the join
 gdf_buffered = gdf[['cell_id', 'geometry']].copy()
-gdf_buffered['geometry'] = gdf_buffered.buffer(threshold_far)
+gdf_buffered['geometry'] = gdf_buffered.buffer(threshold_over)
 
 # 4. Spatial Join
 # We join the original points (left) with the 10km buffers (right)
@@ -41,7 +42,8 @@ def calculate_distance(row):
 nearby['distance_m'] = nearby.apply(calculate_distance, axis=1)
 
 # 7. Categorize
-nearby['category'] = '1km-10km'
+nearby['category'] = '10km-20km'
+nearby.loc[nearby['distance_m'] <= threshold_far, 'category'] = '1km-10km'
 nearby.loc[nearby['distance_m'] <= threshold_near, 'category'] = 'under_1km'
 
 # 8. Export

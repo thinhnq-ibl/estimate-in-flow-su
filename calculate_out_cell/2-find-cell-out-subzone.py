@@ -3,7 +3,7 @@ import pandas as pd
 
 # Read the shapes (subzones) and the grid of cells once
 subzones = gpd.read_file('../map/data_seoul_subzone.shp')
-grid = gpd.read_file('./seoul_prob_pois.geojson')
+grid = gpd.read_file('../share_data/seoul_detail_pois.geojson')
 
 results_list = []
 
