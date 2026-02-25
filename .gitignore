@@ -215,3 +215,4 @@ calculate_out_cell/*.geojson
 share_data/*.geojson
 share_data/*.csv
 calculate_in_by_pop/in_flow_cells_distance.geojson
+share_data/cache/*.json
