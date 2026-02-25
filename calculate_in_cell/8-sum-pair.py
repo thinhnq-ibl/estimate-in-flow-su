@@ -10,6 +10,7 @@ aggregated_df = df.groupby(['origin_cell','destination_cell'], as_index=False)['
 # Sort the results by count in descending order
 aggregated_df = aggregated_df.sort_values(by='origin_cell', ascending=True)
 
+# aggregated_df = aggregated_df[aggregated_df["in_amount"] >= 100]
 # Display the result
 print(aggregated_df.head())
 

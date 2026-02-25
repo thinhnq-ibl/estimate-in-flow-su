@@ -7,6 +7,6 @@ df = pd.read_csv('../share_data/aggregated_trips.csv')
 
 print(df['COUNT'].sum())
 
-gdf = gpd.read_file('./map_zone_cell.geojson')
-print(gdf['final_out_value'].sum())
+gdf = pd.read_csv('./all_flow_cell.csv')
+print(gdf['in_amount'].sum())
 

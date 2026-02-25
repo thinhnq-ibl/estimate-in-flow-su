@@ -12,6 +12,5 @@ aggregated_df = aggregated_df.sort_values(by='origin_cell', ascending=True)
 
 # Display the result
 print(aggregated_df.head())
-
 # Save the aggregated data to a new CSV file
 aggregated_df.to_csv('all_flow_cell.csv', index=False)

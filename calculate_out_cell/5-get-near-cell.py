@@ -7,7 +7,7 @@ gdf = gdf.to_crs(epsg=3857)
 # 2. Define thresholds
 threshold_near = 1000   # 1km
 threshold_far = 10000   # 10km
-threshold_over = 30000   # 30km
+threshold_over = 20000   # 20km
 
 # 3. Create a buffer for the maximum search area (10km)
 # We keep 'cell_id' in this copy so it's available after the join
