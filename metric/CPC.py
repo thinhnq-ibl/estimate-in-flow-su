@@ -45,8 +45,8 @@ def fast_cpc(df_obs, df_pred):
     # 3. Vectorized minimum and sums
     intersection_sum = np.minimum(obs_flows, pred_flows).sum()
     # Calculate totals from the original dataframes to account for flows that might exist in one but not the other
-    total_obs = merged['in_amount_obs'].sum()
-    total_pred = merged['in_amount_pred'].sum()
+    total_obs = df_obs['in_amount'].sum()
+    total_pred = df_pred['in_amount'].sum()
     # 4. Final CPC Ratio
     cpc = (2.0 * intersection_sum) / (total_obs + total_pred)
     return cpc

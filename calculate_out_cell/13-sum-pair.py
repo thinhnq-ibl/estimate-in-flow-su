@@ -2,7 +2,7 @@ import pandas as pd
 
 # Load the dataset
 # Replace 'your_data.csv' with the actual filename
-df = pd.read_csv('./all_flow_cell_detail.csv')
+df = pd.read_csv('./all_flow_cell.csv')
 
 # Group by destination coordinates and sum the COUNT column
 aggregated_df = df.groupby(['origin_cell','destination_cell'], as_index=False)['in_amount'].sum()
