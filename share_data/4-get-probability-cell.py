@@ -72,7 +72,7 @@ def get_probability_per_cell(combined_data, gid):
         print("No data found after filtering.")
         return 0
  
-geojson_file = "seoul_detailed_pois.geojson"
+geojson_file = "seoul_detail_pois.geojson"
 cell_gdf = gpd.read_file(geojson_file)
 
 # Ensure 'prob_0' column exists

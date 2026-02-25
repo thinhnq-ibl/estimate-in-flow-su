@@ -1,6 +1,6 @@
 import geopandas as gpd
 
-geojson_file = "seoul_detailed_pois.geojson"
+geojson_file = "seoul_detail_pois.geojson"
 cell_gdf = gpd.read_file(geojson_file)
 
 # Load the Vietnam District shapefile

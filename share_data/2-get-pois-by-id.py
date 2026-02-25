@@ -46,5 +46,5 @@ counts = joined.groupby(['cell_id', 'poi_category']).size().unstack(fill_value=0
 final_gdf = grid_gdf.merge(counts, on='cell_id', how='left').fillna(0)
 
 # Save result
-final_gdf.to_file("seoul_detailed_pois.geojson", driver='GeoJSON')
+final_gdf.to_file("seoul_detail_pois.geojson", driver='GeoJSON')
 print("Done! Detailed counts saved.")
