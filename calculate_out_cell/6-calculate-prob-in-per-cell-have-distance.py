@@ -40,12 +40,12 @@ for index1, row1 in out_data.iterrows():
     for index, row in all_pairs_under_1.iterrows():
         distance = row["distance_m"]
         pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-        sum_pois += (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
+        sum_pois += (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance)
 
     for index, row in all_pairs_under_1.iterrows():
         distance = row["distance_m"]
         pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-        pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
+        pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance)
         
         prob_0 = float(pois_data["prob_0"])
         if all_pairs_10.shape[0] < 1:
@@ -63,12 +63,12 @@ for index1, row1 in out_data.iterrows():
         for index, row in all_pairs_over_10.iterrows():
             distance = row["distance_m"]
             pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-            sum_pois2 += (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
+            sum_pois2 += (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance)
 
         for index, row in all_pairs_over_10.iterrows():
             distance = row["distance_m"]
             pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-            pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
+            pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance)
         
             prob = pois_right/sum_pois2 * (1.0 - float(pois_data["prob_0"]) - float(pois_data["prob_10"]))
             total += prob
@@ -81,12 +81,12 @@ for index1, row1 in out_data.iterrows():
         for index, row in all_pairs_10.iterrows():
             distance = row["distance_m"]
             pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-            sum_pois3 += (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
+            sum_pois3 += (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance)
 
         for index, row in all_pairs_10.iterrows():
             distance = row["distance_m"]
             pois_data = out_data[out_data["cell_id"] == row["cell_id"]].iloc[0]
-            pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance/1000)
+            pois_right = (othercase + float(pois_data["tourism"]) * tourism + float(pois_data["office"]) * office + float(pois_data["shop"]) * shop + float(pois_data["amenity"]) * amenity + float(pois_data["public_transport"]) * public_transport) * mobility_decay_probability(distance)
             prob_10 = float(pois_data["prob_10"])
             if all_pairs_over_10.shape[0] < 1:
                 prob_10 = 1 - float(pois_data["prob_0"])

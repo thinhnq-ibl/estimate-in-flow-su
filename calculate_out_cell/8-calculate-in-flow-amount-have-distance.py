@@ -23,4 +23,4 @@ for index1, row1 in gdf.iterrows():
     
     gdf.at[index1, "total_in"] = sum_in
    
-gdf.to_file("in_flow_cells_distance.geojson", driver='GeoJSON')
+gdf.to_file("in_flow_cells_normalized.geojson", driver='GeoJSON')

@@ -3,7 +3,7 @@ import pandas as pd
 
 # 1. Load your GeoJSON data
 # Replace 'in_flow_cells_v2_distance.json' with your actual file path
-gdf = gpd.read_file('in_flow_cells_distance.geojson')
+gdf = gpd.read_file('in_flow_cells_normalized.geojson')
 
 # 2. Calculate the total sum of all inflows
 total_in_flow = gdf['total_in'].sum()

@@ -37,7 +37,7 @@ def calculate_distance(row):
     # Lookup the original geometries using the cell_ids
     geom_a = gdf.loc[gdf['cell_id'] == row['cell_id'], 'geometry'].values[0]
     geom_b = gdf.loc[gdf['cell_id'] == row['neighbor_id'], 'geometry'].values[0]
-    return geom_a.distance(geom_b)
+    return geom_a.distance(geom_b) / 0.00833
 
 nearby['distance_m'] = nearby.apply(calculate_distance, axis=1)
 
