@@ -24,3 +24,9 @@ geojson_file = "categorized_cell_pairs.geojson"
 df = gdp.read_file(geojson_file)
 
 print(df["in_amount"].sum())
+
+geojson_file = "all_flow_cell3.csv"
+
+df = pd.read_csv(geojson_file)
+
+print(df["in_amount"].sum())

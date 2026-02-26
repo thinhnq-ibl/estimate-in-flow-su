@@ -16,15 +16,16 @@ observed = []
 
 simulated = []
 
-gpd_real = gpd.read_file("../calculate_in_cell/in_flow_cells_normalized_real.geojson")
-gpd_simulate = gpd.read_file("../calculate_in_by_pop/in_flow_cells_distance.geojson")
+gpd_real = pd.read_csv("../calculate_in_cell/all_flow_cell3.csv")
+gpd_simulate = pd.read_csv("../calculate_out_cell/all_flow_cell3.csv")
 
 for index, row in gpd_simulate.iterrows():
-    cell_id = row["cell_id"]
-    real = gpd_real[gpd_real["cell_id"] == cell_id]
+    cell_id = row["origin_cell"]
+    cell_id_to = row["destination_cell"]
+    real = gpd_real[(gpd_real["origin_cell"] == cell_id) & (gpd_real["destination_cell"] == cell_id_to)]
     if len(real) > 0:
-        simulated.append(row["norm_total_in"])
-        observed.append(real["norm_total_in"].iloc[0])
+        simulated.append(row["in_amount"])
+        observed.append(real["in_amount"].iloc[0])
 
 # 2. Create the plot
 plt.figure(figsize=(8, 8))

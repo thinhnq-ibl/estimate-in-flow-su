@@ -12,7 +12,7 @@ unique_cells = gdf.drop_duplicates('cell_id').drop(columns=['cell_in'])
 
 # 3. Merge the summed values back
 final_gdf = unique_cells.merge(cell_sums, on='cell_id')
-final_gdf = final_gdf.drop(columns=['SUBZONE_C', 'intersect_area_m2', 'total_in_to_divide', "group_area","in_density","pop_count"])
+final_gdf = final_gdf.drop(columns=['SUBZONE_C', 'intersect_area_m2', 'total_in_to_divide', "group_area","pop_count"])
 
 # Save the result
 final_gdf.to_file("in_flow_cells_normalized_real.geojson", driver='GeoJSON')

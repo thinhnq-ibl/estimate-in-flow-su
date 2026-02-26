@@ -2,12 +2,12 @@ import geopandas as gpd
 
 # 1. Load and Project
 gdf = gpd.read_file('final_summed_out_cells.geojson').reset_index()
-gdf = gdf.to_crs(epsg=3857) 
+gdf = gdf.to_crs(epsg=4326) 
 
 # 2. Define thresholds
-threshold_near = 1000   # 1km
-threshold_far = 10000   # 10km
-threshold_over = 20000   # 20km
+threshold_near = 0.00833   # 1km
+threshold_far = 10 * 0.00833   # 10km
+threshold_over = 20 * 0.00833   # 20km
 
 # 3. Create a buffer for the maximum search area (10km)
 # We keep 'cell_id' in this copy so it's available after the join

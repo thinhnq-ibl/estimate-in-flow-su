@@ -8,7 +8,7 @@ tif_file = "../map/kor_pop_2025_CN_1km_R2025A_UA_v1.tif"
 output_geojson = "seoul_city_grid.geojson"
 
 with rasterio.open(tif_file) as src:
-
+    print(src.crs)
     seoul_gdf = get_seoul_geometry()
     
     # 1. Mask and Crop
@@ -49,7 +49,7 @@ with rasterio.open(tif_file) as src:
         'pop_count': pop_values,
         'geometry': geometries
     }, crs=src.crs)
-
+   
 # Save and Index
 results_gdf.set_index('cell_id', inplace=True)
 results_gdf.to_file(output_geojson, driver='GeoJSON')

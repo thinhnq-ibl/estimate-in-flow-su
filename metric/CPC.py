@@ -13,8 +13,8 @@ import pandas as pd
 
 
 # Read as CSV (not GeoDataFrame) and ensure numeric columns
-gpd_real = pd.read_csv("../calculate_in_cell/all_flow_cell.csv")
-gpd_simulate = pd.read_csv("../calculate_out_cell/all_flow_cell.csv")
+gpd_real = pd.read_csv("../calculate_in_cell/all_flow_cell3.csv")
+gpd_simulate = pd.read_csv("../calculate_out_cell/all_flow_cell3.csv")
 
 
 
@@ -29,8 +29,8 @@ def fast_cpc(df_obs, df_pred):
     # Ensure in_amount columns are numeric
     df_obs = df_obs.copy()
     df_pred = df_pred.copy()
-    df_obs['in_amount'] = pd.to_numeric(df_obs['in_amount'], errors='coerce').fillna(0)
-    df_pred['in_amount'] = pd.to_numeric(df_pred['in_amount'], errors='coerce').fillna(0)
+    df_obs['in_amount'] = pd.to_numeric(df_obs['in_amount'], errors='coerce')
+    df_pred['in_amount'] = pd.to_numeric(df_pred['in_amount'], errors='coerce')
 
     # 1. Use an inner merge to find the intersection of flows
     merged = pd.merge(
@@ -39,6 +39,7 @@ def fast_cpc(df_obs, df_pred):
         on=['origin_cell', 'destination_cell'], 
         suffixes=('_obs', '_pred')
     )
+    print("merge", merged)
     # 2. Convert columns to NumPy arrays (Zero-copy view if possible)
     obs_flows = merged['in_amount_obs'].values.astype(float)
     pred_flows = merged['in_amount_pred'].values.astype(float)
